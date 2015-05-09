@@ -14,6 +14,5 @@
 #define	CALCULO_HORA_H
 
 
-
 #endif	/* CALCULO_HORA_H */
 
