@@ -28,6 +28,7 @@ Legenda iniciarLegenda(){
     return NULL;
 }
 
+
 Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Texto texto){
     Legenda ptNo, ant, aux;
     int i = 1;
@@ -45,6 +46,7 @@ Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Tex
         strcpy(ptNo->inicio, inicial);
         strcpy(ptNo->fim, final);
         ptNo->texto = texto;
+        //Compara disponibilidade da legenda estar na posicao.
         if(!ant){
             ptNo->proximo = L;
             L = ptNo;
@@ -79,8 +81,61 @@ void retiraLegenda(Legenda *L, int num){
             free(aux);
         }
     }
-    
+}
 
+Legenda consultarLegenda(Legenda L, char inicial[30]){
+    return NULL;
+}
+
+void atualizaLegenda(Legenda *L, char inicial[30], char final[30], Texto texto, int num){
+    if(!*L)
+        printf("Lista de legendas vazia!");
+    else{
+        int i = 1;
+        Legenda aux, ant;
+        aux = *L;
+        ant = NULL;
+        while(aux && i < num){
+            ant = aux;
+            aux = aux->proximo;
+            i++;
+        }
+        if(!aux || i>num) 
+            printf("Não encontrado a legenda");
+        else{
+            strcpy(aux->inicio, inicial);
+            strcpy(aux->fim, final);
+            aux->texto = texto;            
+        }
+    }
+   
+}
+
+void funcaoTempo(){}
+
+void atualizarTempo(Legenda *L, int num, int tempo, char medida){
+    if(!*L)
+        printf("Lista de legendas vazia!");
+    else{
+        int i = 1;
+        Legenda aux, ant;
+        aux = *L;
+        ant = NULL;
+        while(aux && i < num){
+            ant = aux;
+            aux = aux->proximo;
+            i++;
+        }
+        if(!aux || i>num) 
+            printf("Não encontrado a legenda");
+        else{
+            while(aux){
+                aux = aux->proximo;
+                funcaoTempo();
+            }
+        }
+    }
+    
 }
 
 

@@ -33,12 +33,12 @@ int main(int argc, char** argv) {
     printf("%s", L->proximo->proximo->fim);
     printf("%s", L->proximo->proximo->proximo->fim);
     
-    retiraLegenda(&L, 4);
+    atualizaLegenda(&L,"300", "teste_teste", NULL, 1);
     
-    printf("\n%s", L->fim);
-    printf("%s", L->proximo->fim);
-    printf("%s", L->proximo->proximo->fim);
-    //printf("%s", L->proximo->proximo->proximo->fim);
+    printf("\n%s\n", L->fim);
+    printf("%s\n", L->proximo->fim);
+    printf("%s\n", L->proximo->proximo->fim);
+    printf("%s\n", L->proximo->proximo->proximo->fim);
     retiraLegenda(&L, 1);
     retiraLegenda(&L, 1);
     retiraLegenda(&L, 1);
