@@ -13,19 +13,19 @@
 #ifndef CALCULO_HORA_H
 #define	CALCULO_HORA_H
 
-void iniVariavel(char *h, char *m, char *s, char *ms, char *ini){
-	h[0] = ini[0];
-	h[1] = ini[1];
+void iniVariavel(char *h, char *m, char *s, char *ms, char *marcacao){
+	h[0] = marcacao[0];
+	h[1] = marcacao[1];
 	h[2] = '\0';
-	m[0] = ini[3];
-	m[1] = ini[4];
+	m[0] = marcacao[3];
+	m[1] = marcacao[4];
 	m[2] = '\0'
-	s[0] = ini[6];
-	s[1] = ini[7];
+	s[0] = marcacao[6];
+	s[1] = marcacao[7];
 	s[2] = '\0';
-	ms[0] = ini[9];
-	ms[1] = ini[10];
-	ms[2] = ini[11];
+	ms[0] = marcacao[9];
+	ms[1] = marcacao[10];
+	ms[2] = marcacao[11];
 	ms[3] = '\0';
 }
 
@@ -35,7 +35,16 @@ void somaTempo(char * ini, char * fim, char id){
 
 	iniVariavel(horaIn, minIn, segIn, msIn, ini);
 	iniVariavel(horaFim, minFim, segFim, msFim, fim);
-
+	int hIni, mIni, sIni, msIni;
+	int hFim, mFim, sFim, msFim;
+	hIni = atoi(horaIn);
+	mIni = atoi(minIn);
+	sIni = atoi(segIn);
+	msIni = atoi(msIn);
+	hFim = atoi(horaFim);
+	mFim = atoi(minFim);
+	sFim = atoi(segFim);
+	msFim = atoi(msFim);
 	
 	if(id == 'h'){
 
