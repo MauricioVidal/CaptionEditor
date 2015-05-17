@@ -13,6 +13,30 @@ typedef struct n{
     No  *prox;
 }*Texto;
 
+Texto escreveLegenda(){
+	Texto T, ant, aux;
+	ant = NULL;
+	char c;
+	printf("Digite '#' para finalizar!");
+	while((c = getChar()) != '#'){
+		aux = (Texto) malloc(sizeof(No));
+		aux->info = c;
+		aux->prox = NULL;
+		if(ant)
+			ant->prox = aux;
+		if(!T)
+			T = aux;
+		ant = aux;
+	}
+	return T;
+}
+void mostra(Texto t){
+	while(t){
+		printf("%c",t->info);
+		t = t->prox;
+	}
+}
+
 
 #endif	/* TEXTO_H */
 
