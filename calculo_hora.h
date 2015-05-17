@@ -24,7 +24,7 @@ void iniVariavel(char *h, char *m, char *s, char *ms, char *marcacao){
 	h[2] = '\0';
 	m[0] = marcacao[3];
 	m[1] = marcacao[4];
-	m[2] = '\0'
+	m[2] = '\0';
 	s[0] = marcacao[6];
 	s[1] = marcacao[7];
 	s[2] = '\0';
@@ -35,36 +35,36 @@ void iniVariavel(char *h, char *m, char *s, char *ms, char *marcacao){
 }
 
 char itoa(int i){
-	if(i = 0){
-		return  '0';
-	}else if(i = 1){
-		return '1';
-	}else if(i = 2){
-		return '2';
-	}else if(i = 3){
-		return '3';
-	}else if(i = 4){
-		return '4';
-	}else if(i = 5){
-		return '5';
-	}else if(i = 6){
-		return '6';
-	}else if(i = 7){
-		return '7'
-	}else if(i = 8){
-		return '8'
-	}else if(i = 9){
-		return '9';
-	}
-	printf("Nao eh um numero inteiro");
+    if(i == 0){
+        return  '0';
+    }else if(i == 1){
+        return '1';
+    }else if(i == 2){
+        return '2';
+    }else if(i == 3){
+        return '3';
+    }else if(i == 4){
+        return '4';
+    }else if(i == 5){
+        return '5';
+    }else if(i == 6){
+        return '6';
+    }else if(i == 7){
+        return '7';
+    }else if(i == 8){
+        return '8';
+    }else if(i == 9){
+        return '9';
+    }
+    printf("Nao eh um numero inteiro");
 }
 
 void somaTempo(char * ini, char * fim, int tempo, char id){
 
-	char horaIn[3], minIn[3], segIn[3], msIn[4], horaFim[3], minFim[3], segFim[3], msFim[4];
+	char horaIn[3], minIn[3], segIn[3], msIn[4], horaFim[3], minFim[3], segFim[3], msegFim[4];
 
 	iniVariavel(horaIn, minIn, segIn, msIn, ini);
-	iniVariavel(horaFim, minFim, segFim, msFim, fim);
+	iniVariavel(horaFim, minFim, segFim, msegFim, fim);
 	int hIni, mIni, sIni, msIni;
 	int hFim, mFim, sFim, msFim;
 	hIni = atoi(horaIn);
@@ -74,8 +74,8 @@ void somaTempo(char * ini, char * fim, int tempo, char id){
 	hFim = atoi(horaFim);
 	mFim = atoi(minFim);
 	sFim = atoi(segFim);
-	msFim = atoi(msFim);
-	
+	msFim = atoi(msegFim);
+        	
 	if(id == 'h'){
 		int h;
 		//Tempo inicial
@@ -117,15 +117,17 @@ void somaTempo(char * ini, char * fim, int tempo, char id){
 		mFim = m%60;
 		incremento2 = m/60;
 		h = hFim + incremento2;
-		hFim = h%24;	
-	}else{
+		hFim = h%24;
+                
+	}else if(id == 'l'){
 		int ms, incremento1, s, incremento2, m, incremento3, h;
 		//Tempo inicial
 		ms = msIni + tempo;
 		msIni = ms%1000;
 		incremento1 = ms/1000;
-		s = sIni + incremento1;
+                s = sIni + incremento1;
 		sIni = s%60;
+
 		incremento2 = s/60;
 		m = mIni + incremento2;
 		mIni = m%60;
@@ -134,7 +136,7 @@ void somaTempo(char * ini, char * fim, int tempo, char id){
 		hIni = h%24;
 		//Tempo final
 		ms = msFim + tempo;
-		msIni = ms%1000;
+		msFim = ms%1000;
 		incremento1 = ms/1000;
 		s = sFim + incremento1;
 		sFim = s%60;
@@ -145,6 +147,7 @@ void somaTempo(char * ini, char * fim, int tempo, char id){
 		h = hFim + incremento3;
 		hFim = h%24;
 	}
+        
 	//Tranformar em char novamente e colocar nas posicoes corretas.
 	//Hora inicial
 	ini[0] = itoa(hIni/10);
@@ -232,7 +235,7 @@ int horaMenor(char h1[], char h2[]){
 	return 0;
 }
 
-int horasIguais(char h1[], char h2[] ){
+int horaIgual(char h1[], char h2[] ){
 	if(!strcmp(h1,h2)){
 		return 1;
 	}
