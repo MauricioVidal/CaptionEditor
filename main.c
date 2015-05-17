@@ -21,28 +21,14 @@
  */
 
 int main(int argc, char** argv) {
+    char ini[13], fim[13];
     
-    Legenda L = iniciarLegenda();
-    L = inserirLegenda(L, 1, "300", "teste1",NULL);
-    L = inserirLegenda(L, 2, "300", "teste2",NULL);
-    L = inserirLegenda(L, 3, "300", "teste3",NULL);
-    L = inserirLegenda(L, 4, "300", "teste4",NULL);
+    strcpy(ini, "00:00:01,000");
+    strcpy(fim, "01:00:00,000");
+    printf("%d",horaIgual("00:00:11,000","00:00:11,000"));
     
-    printf("%s", L->fim);
-    printf("%s", L->proximo->fim);
-    printf("%s", L->proximo->proximo->fim);
-    printf("%s", L->proximo->proximo->proximo->fim);
-    
-    atualizaLegenda(&L,"300", "teste_teste", NULL, 1);
-    
-    printf("\n%s\n", L->fim);
-    printf("%s\n", L->proximo->fim);
-    printf("%s\n", L->proximo->proximo->fim);
-    printf("%s\n", L->proximo->proximo->proximo->fim);
-    retiraLegenda(&L, 1);
-    retiraLegenda(&L, 1);
-    retiraLegenda(&L, 1);
-    
+    printf("Ini: %s \n", ini);
+    printf("Fim: %s \n", fim);
     
     return (EXIT_SUCCESS);
 }
