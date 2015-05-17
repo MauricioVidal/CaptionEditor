@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------
-*          UNIFAL – Universidade Federal de Alfenas.        
+ *          UNIFAL – Universidade Federal de Alfenas.        
  * Trabalho..: Editor de Legendas usando lista encadeada    
  * Disciplina: Estrutura de Dados I                         
  * Professor.: Luiz Eduardo da Silva                        
@@ -17,28 +17,28 @@
 #ifndef LEGENDA_H
 #define	LEGENDA_H
 typedef struct no Item;
+
 typedef struct no {
-   char inicio[30];
-   char fim[30];
-   Texto texto;
-   Item *proximo;
-}*Legenda;
-  
-Legenda iniciarLegenda(){
+    char inicio[30];
+    char fim[30];
+    Texto texto;
+    Item *proximo;
+} *Legenda;
+
+Legenda iniciarLegenda() {
     return NULL;
 }
 
-
-Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Texto texto){
+Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Texto texto) {
     Legenda ptNo, ant, aux;
     int i = 1;
-    ptNo = (Legenda) malloc(sizeof(Item));
-    if(!ptNo)
+    ptNo = (Legenda) malloc(sizeof (Item));
+    if (!ptNo)
         printf("Lista de legenda cheia!");
-    else{
+    else {
         ant = NULL;
         aux = L;
-        while(aux && i<num){
+        while (aux && i < num) {
             ant = aux;
             aux = aux->proximo;
             i++;
@@ -47,10 +47,10 @@ Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Tex
         strcpy(ptNo->fim, final);
         ptNo->texto = texto;
         //Compara disponibilidade da legenda estar na posicao.
-        if(!ant){
+        if (!ant) {
             ptNo->proximo = L;
             L = ptNo;
-        }else{
+        } else {
             ptNo->proximo = ant->proximo;
             ant->proximo = ptNo;
         }
@@ -58,86 +58,95 @@ Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Tex
     return L;
 }
 
-void retiraLegenda(Legenda *L, int num){
-    if(!*L)
+void retiraLegenda(Legenda *L, int num) {
+    if (!*L)
         printf("Lista de legendas vazia!");
-    else{
+    else {
         int i = 1;
         Legenda aux, ant;
         aux = *L;
         ant = NULL;
-        while(aux && i < num){
+        while (aux && i < num) {
             ant = aux;
             aux = aux->proximo;
             i++;
         }
-        if(!aux || i > num)
+        if (!aux || i > num)
             printf("Não encontrado a legenda");
-        else{
-            if(!ant)
+        else {
+            if (!ant)
                 *L = aux->proximo;
             else
                 ant->proximo = aux->proximo;
+            if (aux->texto)
+                desalocaTexto(&(aux->texto));
             free(aux);
         }
     }
 }
 
-Legenda consultarLegenda(Legenda L, char inicial[30]){
+Legenda consultarLegenda(Legenda L, char inicial[30]) {
     return NULL;
 }
 
-void atualizaLegenda(Legenda *L, char inicial[30], char final[30], Texto texto, int num){
-    if(!*L)
+void atualizaLegenda(Legenda *L, char inicial[30], char final[30], Texto texto, int num) {
+    if (!*L)
         printf("Lista de legendas vazia!");
-    else{
+    else {
         int i = 1;
         Legenda aux, ant;
         aux = *L;
         ant = NULL;
-        while(aux && i < num){
+        while (aux && i < num) {
             ant = aux;
             aux = aux->proximo;
             i++;
         }
-        if(!aux || i>num) 
+        if (!aux || i > num)
             printf("Não encontrado a legenda");
-        else{
+        else {
             strcpy(aux->inicio, inicial);
             strcpy(aux->fim, final);
-            aux->texto = texto;            
+            aux->texto = texto;
         }
     }
-   
+
 }
 
-void funcaoTempo(){}
+void funcaoTempo() {
+}
 
-void atualizarTempo(Legenda *L, int num, int tempo, char medida){
-    if(!*L)
+void atualizarTempo(Legenda *L, int num, int tempo, char medida) {
+    if (!*L)
         printf("Lista de legendas vazia!");
-    else{
+    else {
         int i = 1;
         Legenda aux, ant;
         aux = *L;
         ant = NULL;
-        while(aux && i < num){
+        while (aux && i < num) {
             ant = aux;
             aux = aux->proximo;
             i++;
         }
-        if(!aux || i>num) 
+        if (!aux || i > num)
             printf("Não encontrado a legenda");
-        else{
-            while(aux){
+        else {
+            while (aux) {
                 aux = aux->proximo;
                 funcaoTempo();
             }
         }
     }
-    
+
 }
 
+void desalocaTexto(Texto *t) {
+    while (*t) {
+        free(t);
+        t = t->prox;
+    }
 
+}
 #endif	/* LEGENDA_H */
 

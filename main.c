@@ -23,12 +23,7 @@
 int main(int argc, char** argv) {
     char ini[13], fim[13];
     
-    strcpy(ini, "00:00:01,000");
-    strcpy(fim, "01:00:00,000");
-    printf("%d",horaIgual("00:00:11,000","00:00:11,000"));
     
-    printf("Ini: %s \n", ini);
-    printf("Fim: %s \n", fim);
     
     return (EXIT_SUCCESS);
 }
