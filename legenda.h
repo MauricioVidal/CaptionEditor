@@ -58,6 +58,15 @@ Legenda inserirLegenda(Legenda L, int num, char inicial[30], char final[30], Tex
     return L;
 }
 
+void desalocaTexto(Texto *t) {
+    while (*t) {
+        Texto aux = *t;
+        (*t) = (*t)->prox;
+        free(aux);
+    }
+
+}
+
 void retiraLegenda(Legenda *L, int num) {
     if (!*L)
         printf("Lista de legendas vazia!");
@@ -78,8 +87,9 @@ void retiraLegenda(Legenda *L, int num) {
                 *L = aux->proximo;
             else
                 ant->proximo = aux->proximo;
-            if (aux->texto)
+            if (aux->texto){
                 desalocaTexto(&(aux->texto));
+            }
             free(aux);
         }
     }
@@ -137,14 +147,6 @@ void atualizarTempo(Legenda *L, int num, int tempo, char medida) {
                 funcaoTempo();
             }
         }
-    }
-
-}
-
-void desalocaTexto(Texto *t) {
-    while (*t) {
-        free(t);
-        t = t->prox;
     }
 
 }

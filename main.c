@@ -21,9 +21,13 @@
  */
 
 int main(int argc, char** argv) {
-    char ini[13], fim[13];
-    
-    
+    char nomeDoArquivo[30];
+    printf("Digite o nome do arquivo: \n");
+    scanf(" %s", nomeDoArquivo);
+    FILE *arq = fopen(nomeDoArquivo, 'r');
+    if(!(*arq)){
+        *arq = fopen(nomeDoArquivo, 'w');
+    }
     
     return (EXIT_SUCCESS);
 }
