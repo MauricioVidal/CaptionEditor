@@ -110,9 +110,19 @@ int main(int argc, char** argv) {
                 printf("Escreva o texto da legenda: ");
                 t = escreveLegenda();
                 atualizaLegenda(L,tempoInicial,tempoFinal,t,numLegenda);
-                printf("Legenda atualizada com sucesso!");
+                printf("Legenda atualizada com sucesso!\n");
                 break;
             case 5:
+                int numLegenda, tempo;
+                char medida;                
+                printf("Digite o numero da legenda a ser adicionado o tempo: ");
+                scanf("%d", &numLegenda);
+                printf("Digite a medida de tempo (h/m/s/ms): ");
+                scanf("%c", &medida);
+                printf("Digite a quantidade de tempo que deseja adicionar: ");
+                scanf("%d", tempo);
+                atualizarTempo(L,numLegenda,tempo,medida);
+                printf("Tempo atualizado com sucesso!");
                 break;
         }
     }
