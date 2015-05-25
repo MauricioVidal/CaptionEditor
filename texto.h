@@ -1,9 +1,14 @@
-/* 
- * File:   texto.h
- * Author: a14020
- *
- * Created on 8 de Maio de 2015, 11:31
- */
+/*-----------------------------------------------------------
+*          UNIFAL – Universidade Federal de Alfenas.        
+ * Trabalho..: Editor de Legendas usando lista encadeada    
+ * Disciplina: Estrutura de Dados I                         
+ * Professor.: Luiz Eduardo da Silva                        
+ * Aluno(s)..: Beatriz de Oliveira Rodrigues
+ *             Maurício Roque Vidal                             
+ *             Monica de Cassia Roncada 
+ *             Willian de Souza Soares       
+ * Data......: 27/05/2015                                   
+ *------------------------------------------------------------*/
 #include<stdio.h>
 #include<stdlib.h>
 #ifndef TEXTO_H
@@ -14,6 +19,7 @@ typedef struct n {
     char info;
     No *prox;
 } *Texto;
+
 
 Texto leTextoLegenda(FILE * arq) {
     Texto T = NULL, ant, aux;
@@ -58,17 +64,26 @@ Texto escreveLegenda() {
             T = aux;
         ant = aux;
     }
-
+    
     return T;
 }
 
-void mostraLegenda(Texto t) {
+void mostraTextoLegenda(Texto t) {
     while (t) {
         printf("%c", t->info);
         t = t->prox;
     }
 }
 
+
+void desalocaTexto(Texto *t) {
+    while (*t) {
+        Texto aux = *t;
+        (*t) = (*t)->prox;
+        free(aux);
+    }
+
+}
 
 #endif	/* TEXTO_H */
 

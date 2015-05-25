@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------
- *          UNIFAL – Universidade Federal de Alfenas.        
+*          UNIFAL – Universidade Federal de Alfenas.        
  * Trabalho..: Editor de Legendas usando lista encadeada    
  * Disciplina: Estrutura de Dados I                         
  * Professor.: Luiz Eduardo da Silva                        
@@ -19,8 +19,7 @@
 /*
  * 
  */
-
-int menu() {
+ int menu() {
     int escolha;
     printf("---------------------------MENU-------------------------------\n");
     printf("| 1 - Inserir legenda                                        |\n");
@@ -53,6 +52,7 @@ int leArquivo(Legenda *L, char nomeDoArquivo[30]) {
     fclose(arq);
     return 1;
 }
+
 
 int main(int argc, char** argv) {
     FILE * arq = NULL;
@@ -129,17 +129,5 @@ int main(int argc, char** argv) {
 
     return (EXIT_SUCCESS);
 }
-
-/*
-int main(int argc, char** argv) {
-    char c;
-    FILE *arq = fopen("l.srt", "r");
-    while(fscanf(arq, "%c", &c)!= EOF){
-        printf("(%d) - %c\n", c,c);
-    }
-    
-    return (EXIT_SUCCESS);
-}
- */
 
 
