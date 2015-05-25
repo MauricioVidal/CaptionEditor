@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>calculo_hora.h</itemPath>
       <itemPath>legenda.h</itemPath>
+      <itemPath>texto.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
@@ -44,6 +45,8 @@
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="texto.h" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -70,6 +73,8 @@
       <item path="legenda.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="texto.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

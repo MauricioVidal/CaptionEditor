@@ -15,6 +15,34 @@ typedef struct n {
     No *prox;
 } *Texto;
 
+Texto leTextoLegenda(FILE * arq) {
+    Texto T = NULL, ant, aux;
+    ant = NULL;
+    char c;
+    int cont10 = 0, cont13 = 0;
+    do {
+        fscanf(arq, "%c", &c);
+        aux = (Texto) malloc(sizeof (No));
+        aux->info = c;
+        aux->prox = NULL;
+        if (ant)
+            ant->prox = aux;
+        if (!T)
+            T = aux;
+        ant = aux;
+        if(c == 10){
+            cont10++;
+        }else if(c == 13){
+            cont13++;
+        }else{
+            cont10 = 0;
+            cont13 = 0;
+        }
+    } while (cont10 != 2 || cont13 != 2);
+
+    return T;
+}
+
 Texto escreveLegenda() {
     Texto T = NULL, ant, aux;
     ant = NULL;
@@ -30,7 +58,7 @@ Texto escreveLegenda() {
             T = aux;
         ant = aux;
     }
-    
+
     return T;
 }
 
