@@ -21,14 +21,13 @@
  */
  int menu() {
     int escolha;
-    printf(" __________________________MENU______________________________|\\n");
+    printf("---------------------------MENU-------------------------------\n");
     printf("| 1 - Inserir legenda                                        |\n");
     printf("| 2 - Remover uma Legenda                                    |\n");
     printf("| 3 - Consultar legendas                                     |\n");
     printf("| 4 - Atualizar Legendas                                     |\n");
-    printf("| 5 - Atualizar Tempo                                        |\n");
+    printf("| 5- Atualizaar Tempo                                        |\n");
     printf("| 6 - Sair                                                   |\n");
-    printf("|____________________________________________________________|\n");
     printf("\n");
     printf("Qual a atividade desejada? ");
     scanf("%d", &escolha);
