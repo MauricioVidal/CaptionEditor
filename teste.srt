@@ -1,0 +1,9 @@
+1
+00:00:00,000 --> 00:00:10,000
+Criando uma legenda de teste.
+Verificando insercao da legenda.
+
+2
+00:00:15,000 --> 00:00:20,000
+Acrescentando uma segunda legenda.
+

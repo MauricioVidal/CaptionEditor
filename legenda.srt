@@ -802,7 +802,7 @@ Isso significa que foi tudo um sonho...
 - Criar pesadelos é a abilidade especial do Darkrai
 
 201
-00:24:21,000 --> 00:24:26,000
+00:24:22,000 --> 00:24:26,000
 Quando és posto a dormir pelo Darkrai tens terríveis pesadelos
 
 202
@@ -1371,7 +1371,7 @@ Levanta-te Licklicky! Esta não é a altura para uma soneca...
 - Ele está tão gordo... Barão pode nos dizer o que está a fazer?
 
 343
-00:39:35,900 --> 00:39:38,950
+00:39:36,900 --> 00:39:38,950
 - O que foi?
 - A camera faz mesmo engordar alguns quilos extra!...
 
@@ -1773,7 +1773,7 @@ O Ash não vai demorar muito a perceber...
 Logo após isto o Darkrai apareceu na praça
 
 443
-00:47:21,000 --> 00:47:24,000
+00:47:22,100 --> 00:47:24,000
 Depois disso...
 
 444

@@ -203,7 +203,7 @@ int horaMaior(char h1[], char h2[]){ //h1 > h2
 	return 0;
 }
 
-int horaMenor(char h1[], char h2[]){
+int horaMenor(char h1[], char h2[]){ //h1<h2
 	char h1H[3], h1Min[3], h1S[3], h1Ms[4], h2H[3], h2Min[3], h2S[3], h2Ms[4];
 	iniVariavel(h1H, h1Min, h1S, h1Ms, h1);
 	iniVariavel(h2H, h2Min, h2S, h1Ms, h2);
@@ -235,7 +235,7 @@ int horaMenor(char h1[], char h2[]){
 	return 0;
 }
 
-int horaIgual(char h1[], char h2[] ){
+int horaIgual(char h1[13], char h2[13] ){
 	if(!strcmp(h1,h2)){
 		return 1;
 	}

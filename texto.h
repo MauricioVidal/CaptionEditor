@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------
-*          UNIFAL – Universidade Federal de Alfenas.        
+ *          UNIFAL – Universidade Federal de Alfenas.        
  * Trabalho..: Editor de Legendas usando lista encadeada    
  * Disciplina: Estrutura de Dados I                         
  * Professor.: Luiz Eduardo da Silva                        
@@ -20,7 +20,6 @@ typedef struct n {
     No *prox;
 } *Texto;
 
-
 Texto leTextoLegenda(FILE * arq) {
     Texto T = NULL, ant, aux;
     ant = NULL;
@@ -36,15 +35,15 @@ Texto leTextoLegenda(FILE * arq) {
         if (!T)
             T = aux;
         ant = aux;
-        if(c == 10){
+        if (c == '\r') {
             cont10++;
-        }else if(c == 13){
+        } else if (c == '\n') {
             cont13++;
-        }else{
+        } else {
             cont10 = 0;
             cont13 = 0;
         }
-    } while (cont10 != 2 || cont13 != 2);
+    } while (cont13 != 2 || cont10 != 2);
 
     return T;
 }
@@ -53,18 +52,30 @@ Texto escreveLegenda() {
     Texto T = NULL, ant, aux;
     ant = NULL;
     char c;
-    printf("Digite '#' para finalizar!");
+    printf("Digite '#' para finalizar!\n");
     while ((c = getchar()) != '#') {
-        aux = (Texto) malloc(sizeof (No));
-        aux->info = c;
-        aux->prox = NULL;
-        if (ant)
-            ant->prox = aux;
-        if (!T)
-            T = aux;
-        ant = aux;
+            aux = (Texto) malloc(sizeof (No));
+            aux->info = c;
+            aux->prox = NULL;
+            if (ant)
+                ant->prox = aux;
+            if (!T)
+                T = aux;
+            ant = aux;
     }
-    
+    aux = (Texto) malloc(sizeof (No));
+    aux->info = '\r';
+    aux->prox = (Texto) malloc(sizeof (No));
+    aux->prox->info = '\n';
+    aux->prox->prox = (Texto) malloc(sizeof (No));
+    aux->prox->prox->info = '\r';
+    aux->prox->prox->prox = (Texto) malloc(sizeof (No));
+    aux->prox->prox->prox->info = '\n';
+    aux->prox->prox->prox->prox = NULL;
+    ant->prox = aux;
+    Texto t = T;
+    T = T->prox;
+    free(t);
     return T;
 }
 
@@ -74,7 +85,6 @@ void mostraTextoLegenda(Texto t) {
         t = t->prox;
     }
 }
-
 
 void desalocaTexto(Texto *t) {
     while (*t) {
