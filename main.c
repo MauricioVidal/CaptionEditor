@@ -21,7 +21,8 @@
  */
 int menu() {
     int escolha;
-    printf(" __________________________MENU______________________________|\\n");
+    printf(" __________________________MENU______________________________ \n");
+    printf("|                                                            |\n");
     printf("| 1 - Inserir legenda                                        |\n");
     printf("| 2 - Remover uma Legenda                                    |\n");
     printf("| 3 - Consultar legendas                                     |\n");
