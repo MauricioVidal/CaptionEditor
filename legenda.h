@@ -113,6 +113,7 @@ void retiraLegenda(Legenda *L, int num) {
                 desalocaTexto(&(aux->texto));
             }
             free(aux);
+            printf("Retirada com sucesso!!\n");
         }
     }
 }
@@ -143,7 +144,7 @@ void consultarLegenda(Legenda L, char inicial[30]) {
 
 void atualizaLegenda(Legenda *L, char inicial[13], char final[13], Texto texto, int num) {
     if (!*L)
-        printf("Lista de legendas vazia!");
+        printf("Lista de legendas vazia!\n");
     else {
         int i = 1;
         Legenda aux, ant;
@@ -155,18 +156,19 @@ void atualizaLegenda(Legenda *L, char inicial[13], char final[13], Texto texto, 
             i++;
         }
         if (!aux || i > num)
-            printf("Não encontrado a legenda");
+            printf("Legenda nao encontrada!\n");
         else {
             if (horaMaior(final, inicial)) {
                 if (!conflito(ant, aux->proximo, inicial, final)) {
                     strcpy(aux->inicio, inicial);
                     strcpy(aux->fim, final);
                     aux->texto = texto;
+                    printf("Atualizada com sucesso!!\n");
                 } else {
                     printf("Conflito de legendas!\n");
                 }
             }else{
-                printf("Tempo invalido.");
+                printf("Tempo invalido.\n");
             }
         }
     }
@@ -175,8 +177,9 @@ void atualizaLegenda(Legenda *L, char inicial[13], char final[13], Texto texto, 
 
 void atualizarTempo(Legenda *L, int num, int tempo, char id) {
     if (!*L)
-        printf("Lista de legendas vazia!");
+        printf("Lista de legendas vazia!\n");
     else {
+        if(tempo >= 0 ){
         int i = 1;
         Legenda aux, ant;
         aux = *L;
@@ -187,13 +190,16 @@ void atualizarTempo(Legenda *L, int num, int tempo, char id) {
             i++;
         }
         if (!aux || i > num)
-            printf("Não encontrado a legenda");
+            printf("Não encontrado a legenda\n");
         else {
             while (aux) {
                 somaTempo(aux->inicio, aux->fim, tempo, id);
                 aux = aux->proximo;
             }
+            printf("Tempo atualizado com sucesso!!\n");
         }
+        }else 
+            printf("Entrada invalida!\n");
     }
 
 }

@@ -56,7 +56,7 @@ char itoa(int i){
     }else if(i == 9){
         return '9';
     }
-    printf("Nao eh um numero inteiro");
+    printf("Entrada invalida!\n");
 }
 
 void somaTempo(char * ini, char * fim, int tempo, char id){
@@ -206,7 +206,7 @@ int horaMaior(char h1[], char h2[]){ //h1 > h2
 int horaMenor(char h1[], char h2[]){ //h1<h2
 	char h1H[3], h1Min[3], h1S[3], h1Ms[4], h2H[3], h2Min[3], h2S[3], h2Ms[4];
 	iniVariavel(h1H, h1Min, h1S, h1Ms, h1);
-	iniVariavel(h2H, h2Min, h2S, h1Ms, h2);
+	iniVariavel(h2H, h2Min, h2S, h2Ms, h2);
 	int h1HI, h1MinI, h1SI, h1MsI;
 	int h2HI, h2MinI, h2SI, h2MsI;
 	h1HI = atoi(h1H);

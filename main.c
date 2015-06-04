@@ -21,18 +21,16 @@
  */
 int menu() {
     int escolha;
-    printf(" __________________________MENU______________________________|\\n");
+    printf("---------------------------MENU-------------------------------\n");
     printf("| 1 - Inserir legenda                                        |\n");
     printf("| 2 - Remover uma Legenda                                    |\n");
     printf("| 3 - Consultar legendas                                     |\n");
     printf("| 4 - Atualizar Legendas                                     |\n");
     printf("| 5 - Atualizar Tempo                                        |\n");
     printf("| 6 - Sair                                                   |\n");
-    printf("|____________________________________________________________|\n");
     printf("\n");
     printf("Qual a atividade desejada? ");
     scanf("%d", &escolha);
-
     return escolha;
 }
 
@@ -113,7 +111,7 @@ int main(int argc, char** argv) {
                 printf("Digite o número da legenda a ser retirada: ");
                 scanf(" %d", &numLegenda);
                 retiraLegenda(&L, numLegenda);
-                printf("Legenda Retirada com Sucesso!\n");
+
                 break;
             case 3:
                 printf("Digite o tempo que deseja pesquisar a legenda[00:00:00,000]: ");
@@ -130,7 +128,6 @@ int main(int argc, char** argv) {
                 printf("Escreva o texto da legenda: ");
                 t = escreveLegenda();
                 atualizaLegenda(&L, tempoInicial, tempoFinal, t, numLegenda);
-                printf("Legenda atualizada com sucesso!\n");
                 break;
             case 5:
                 printf("Digite o numero da legenda a ser adicionado o tempo: ");
@@ -140,7 +137,6 @@ int main(int argc, char** argv) {
                 printf("Digite a quantidade de tempo que deseja adicionar: ");
                 scanf(" %d", &tempo);
                 atualizarTempo(&L, numLegenda, tempo, medida);
-                printf("Tempo atualizado com sucesso!\n");
                 break;
         }
     }
